@@ -46,7 +46,11 @@ def form():
 @app.post("/processForm")
 def processForm():
     print(f"Form data: ${request.form}")
-
+    return render_template(
+        "pages/formData.jinja",
+        name = request.form["name"],
+        age = request.form["age"]
+    )
 
 # ------------------------------------------
 # Handle any missing pages
